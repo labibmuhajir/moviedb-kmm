@@ -32,15 +32,18 @@ class MovieUseCaseImpl : MovieUseCase, KoinComponent {
     private var discoverMovieJob: Job? = null
 
     override suspend fun getPopularMovie(page: Int): List<Movie> {
-        return movieDataSource.getPopularMovie(page).results ?: listOf()
+        val total = 10
+        return movieDataSource.getPopularMovie(page).results?.take(total) ?: listOf()
     }
 
     override suspend fun getUpcomingMovie(page: Int): List<Movie> {
-        return movieDataSource.getUpcomingMovie(page).results ?: listOf()
+        val total = 10
+        return movieDataSource.getUpcomingMovie(page).results?.take(total) ?: listOf()
     }
 
     override suspend fun discoverMovie(page: Int): List<Movie> {
-        return movieDataSource.discoverMovie(page).results ?: listOf()
+        val total = 3
+        return movieDataSource.discoverMovie(page).results?.take(total) ?: listOf()
     }
 
     override fun flowPopularMovie(page: Int, either: Either<List<Movie>>) {

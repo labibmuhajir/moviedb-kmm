@@ -25,7 +25,7 @@ allprojects {
         set("ktorVersion", "1.4.0")
         set("serializationVersion", "1.0.0-RC")
         set("koinVersion", "3.0.1-beta-1")
-        set("coroutineVersion", "1.4.3")
+        set("coroutineVersion", "1.4.3-native-mt")
     }
 }
 

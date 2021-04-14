@@ -29,6 +29,11 @@ fun initKoin() = initKoin {}
 val commonModule = module {
     single {
         HttpClient {
+            defaultRequest {
+                host = HttpService.baseUrl
+                header(HttpHeaders.ContentType, ContentType.Application.Json)
+                parameter("api_key", HttpService.apiKey)
+            }
             install(JsonFeature) {
                 val json = kotlinx.serialization.json.Json {
                     ignoreUnknownKeys = true
@@ -39,10 +44,6 @@ val commonModule = module {
             install(Logging) {
                 logger = Logger.DEFAULT
                 level = LogLevel.INFO
-            }
-            defaultRequest {
-                header(HttpHeaders.ContentType, ContentType.Application.Json)
-                parameter("api_key", HttpService.apiKey)
             }
         }
     }

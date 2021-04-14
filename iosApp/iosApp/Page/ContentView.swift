@@ -15,7 +15,6 @@ struct ContentView: View {
                     
                     SegmentedMovie(title: "Popular Movie", movies: viewModel.popularMovie).frame(height: 210)
                     
-                    Divider()
                     SegmentedMovie(title: "Upcoming Movie", movies: viewModel.upcomingMovie).frame(height: 210)
                     
                 }
@@ -28,7 +27,9 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(
+            MovieViewModel(movieUseCase: MovieUseCaseImpl())
+        )
     }
 }
 

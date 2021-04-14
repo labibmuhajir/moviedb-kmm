@@ -20,15 +20,15 @@ struct SegmentedMovie: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(title)
+            Text(title).padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
             ScrollView(.horizontal) {
                 LazyHStack {
                     ForEach(movies, id: \.id) { movie in
                         URLImage(url: movie.posterPath).frame(width: 120, alignment: .center)
                     }
-                }
+                }.padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
             }
-        }
+        }.padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
     }
 }
 

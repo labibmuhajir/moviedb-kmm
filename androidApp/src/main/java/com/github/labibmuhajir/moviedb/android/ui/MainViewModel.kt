@@ -1,4 +1,4 @@
-package com.github.labibmuhajir.moviedb.android.view
+package com.github.labibmuhajir.moviedb.android.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,7 +16,7 @@ class MainViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
     private val _bannerLiveData = MutableLiveData<List<Movie>>()
     val bannerLiveData: LiveData<List<Movie>> get() = _bannerLiveData
 
-    fun initData() {
+    init {
         viewModelScope.launch {
             async { getBanner() }
             async { getSegmented() }
@@ -26,7 +26,7 @@ class MainViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
     fun getBanner() {
         viewModelScope.launch {
             try {
-                val result = movieUseCase.discoverMovie().take(3)
+                val result = movieUseCase.discoverMovie()
                 _bannerLiveData.postValue(result)
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -39,8 +39,8 @@ class MainViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
             try {
                 supervisorScope {
                     val result = mutableListOf<Pair<String, List<Movie>>>()
-                    val popular = async { movieUseCase.getPopularMovie().take(10) }
-                    val upcoming = async { movieUseCase.getUpcomingMovie().take(10) }
+                    val popular = async { movieUseCase.getPopularMovie() }
+                    val upcoming = async { movieUseCase.getUpcomingMovie() }
 
                     popular.await().let {
                         result.add("Popular Movies" to it)

@@ -8,6 +8,19 @@ plugins {
     id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
 }
 
+android {
+    compileSdkVersion(30)
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    defaultConfig {
+        minSdkVersion(21)
+        targetSdkVersion(30)
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+}
+
 val iOSTarget = "13"
 
 // CocoaPods requires the podspec to have a version.
@@ -49,7 +62,9 @@ kotlin {
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.insert-koin:koin-core:$koinVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion") {
+                    isForce = true
+                }
             }
         }
         val commonTest by getting {
@@ -75,15 +90,6 @@ kotlin {
             }
         }
         val iosTest by getting
-    }
-}
-
-android {
-    compileSdkVersion(30)
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    defaultConfig {
-        minSdkVersion(21)
-        targetSdkVersion(30)
     }
 }
 

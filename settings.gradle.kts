@@ -7,6 +7,7 @@ pluginManagement {
     }
 }
 
+
 rootProject.name = "MovieDb"
 include(":androidApp")
 include(":shared")

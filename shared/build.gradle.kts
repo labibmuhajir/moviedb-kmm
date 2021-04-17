@@ -4,7 +4,27 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("plugin.serialization")
+    id("org.jetbrains.kotlin.native.cocoapods")
+    id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
 }
+
+android {
+    compileSdkVersion(30)
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    defaultConfig {
+        minSdkVersion(21)
+        targetSdkVersion(30)
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+}
+
+val iOSTarget = "13"
+
+// CocoaPods requires the podspec to have a version.
+version = "1.0"
 
 kotlin {
     android()
@@ -15,11 +35,16 @@ kotlin {
         else
             ::iosX64
 
-    iosTarget("ios") {
-        binaries {
-            framework {
-                baseName = "shared"
-            }
+    iosTarget("ios") {}
+
+    cocoapods {
+        // Configure fields required by CocoaPods.
+        summary = "MovieDb common module"
+        homepage = "homepage placeholder"
+        ios.deploymentTarget = iOSTarget
+
+        pod("AFNetworking") {
+            version = "~> 4.0.1"
         }
     }
 
@@ -37,10 +62,8 @@ kotlin {
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.insert-koin:koin-core:$koinVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"){
-                    version {
-                        strictly("1.4.3-native-mt")
-                    }
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion") {
+                    isForce = true
                 }
             }
         }
@@ -70,26 +93,11 @@ kotlin {
     }
 }
 
-android {
-    compileSdkVersion(30)
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    defaultConfig {
-        minSdkVersion(21)
-        targetSdkVersion(30)
+multiplatformSwiftPackage {
+    packageName("MovieDbKit")
+    swiftToolsVersion("5.3")
+    targetPlatforms {
+        iOS { v(iOSTarget) }
     }
+    distributionMode { local() }
 }
-
-val packForXcode by tasks.creating(Sync::class) {
-    val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
-    val framework = kotlin.targets.getByName<KotlinNativeTarget>("ios").binaries.getFramework(mode)
-    val targetDir = File(buildDir, "xcode-frameworks")
-
-    group = "build"
-    dependsOn(framework.linkTask)
-    inputs.property("mode", mode)
-
-    from({ framework.outputDirectory })
-    into(targetDir)
-}
-
-tasks.getByName("build").dependsOn(packForXcode)

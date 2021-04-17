@@ -19,13 +19,15 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
+        maven(url = "https://jitpack.io")
+        maven(url = "https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 
     extra.apply {
         set("ktorVersion", "1.4.0")
         set("serializationVersion", "1.0.0-RC")
         set("koinVersion", "3.0.1-beta-1")
-        set("coroutineVersion", "1.4.3")
+        set("coroutineVersion", "1.4.3-native-mt")
     }
 }
 

@@ -13,7 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
+import com.github.labibmuhajir.moviedb.android.theme.MovieTheme
+import com.github.labibmuhajir.moviedb.android.theme.secondaryColor
 import com.github.labibmuhajir.moviedb.android.view.Banner
 import com.github.labibmuhajir.moviedb.android.view.SegmentedMovie
 import com.github.labibmuhajir.moviedb.service.model.Movie
@@ -27,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent(content = {
-            MaterialTheme { MainView() }
+            MovieTheme(window) { MainView() }
         })
     }
 }

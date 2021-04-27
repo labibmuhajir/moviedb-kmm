@@ -5,7 +5,6 @@ plugins {
     id("com.android.library")
     kotlin("plugin.serialization")
     id("org.jetbrains.kotlin.native.cocoapods")
-    id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
 }
 
 android {
@@ -42,10 +41,12 @@ kotlin {
         summary = "MovieDb common module"
         homepage = "homepage placeholder"
         ios.deploymentTarget = iOSTarget
+        frameworkName = "shared"
 
         pod("AFNetworking") {
             version = "~> 4.0.1"
         }
+        podfile = project.file("../iosApp/Podfile")
     }
 
     val config = rootProject.extra
@@ -91,13 +92,4 @@ kotlin {
         }
         val iosTest by getting
     }
-}
-
-multiplatformSwiftPackage {
-    packageName("MovieDbKit")
-    swiftToolsVersion("5.3")
-    targetPlatforms {
-        iOS { v(iOSTarget) }
-    }
-    distributionMode { local() }
 }

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BlackLabsSwiftUIColor",
+        "repositoryURL": "https://github.com/nbasham/BlackLabsSwiftUIColor",
+        "state": {
+          "branch": null,
+          "revision": "cf7295f02d1946034d3ba425d7fc6e5b488b46a1",
+          "version": "1.1.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

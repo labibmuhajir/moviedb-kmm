@@ -42,10 +42,6 @@ kotlin {
         summary = "MovieDb common module"
         homepage = "homepage placeholder"
         ios.deploymentTarget = iOSTarget
-
-        pod("AFNetworking") {
-            version = "~> 4.0.1"
-        }
     }
 
     val config = rootProject.extra

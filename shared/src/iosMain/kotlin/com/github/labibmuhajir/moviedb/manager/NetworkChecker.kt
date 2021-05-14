@@ -1,9 +1,13 @@
 package com.github.labibmuhajir.moviedb.manager
 
-import cocoapods.AFNetworking.*
+import platform.SystemConfiguration.SCNetworkReachabilityCreateWithAddress
+
 
 actual class NetworkChecker {
     actual fun isNetworkAvailable(): Boolean {
-        return  AFNetworkReachabilityManager().isReachable()
+        //todo
+
+
+        return true
     }
 }

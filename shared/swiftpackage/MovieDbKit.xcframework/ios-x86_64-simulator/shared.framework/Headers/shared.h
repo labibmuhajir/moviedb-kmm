@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class SharedMovieSearchResponse, SharedMovieListResponse, SharedKoin_coreKoin, SharedMovie, SharedKotlinThrowable, SharedKoin_coreKoinApplication, SharedKoin_coreModule, SharedKotlinArray<T>, SharedKotlinException, SharedKotlinRuntimeException, SharedKotlinIllegalStateException, SharedKoin_coreDefinitionParameters, SharedKoin_coreScope, SharedKotlinLazyThreadSafetyMode, SharedKoin_coreLogger, SharedKoin_corePropertyRegistry, SharedKoin_coreScopeRegistry, SharedKoin_coreLevel, SharedKoin_coreBeanDefinition<T>, SharedKoin_coreOptions, SharedKoin_coreScopeDSL, SharedKoin_coreScopeDefinition, SharedKotlinEnum<E>, SharedKotlinx_serialization_coreSerializersModule, SharedKotlinx_serialization_coreSerialKind, SharedKotlinNothing, SharedKotlinx_serialization_coreUpdateMode, SharedKoin_coreKind, SharedKoin_coreProperties, SharedKoin_coreCallbacks<T>;
+@class SharedMovieSearchResponse, SharedMovieListResponse, SharedKoin_coreKoin, SharedMovie, SharedRgba, SharedKotlinThrowable, SharedKoin_coreKoinApplication, SharedKoin_coreModule, SharedKotlinArray<T>, SharedKotlinException, SharedKotlinRuntimeException, SharedKotlinIllegalStateException, SharedKoin_coreDefinitionParameters, SharedKoin_coreScope, SharedKotlinLazyThreadSafetyMode, SharedKoin_coreLogger, SharedKoin_corePropertyRegistry, SharedKoin_coreScopeRegistry, SharedKoin_coreLevel, SharedKoin_coreBeanDefinition<T>, SharedKoin_coreOptions, SharedKoin_coreScopeDSL, SharedKoin_coreScopeDefinition, SharedKotlinEnum<E>, SharedKotlinx_serialization_coreSerializersModule, SharedKotlinx_serialization_coreSerialKind, SharedKotlinNothing, SharedKotlinx_serialization_coreUpdateMode, SharedKoin_coreKind, SharedKoin_coreProperties, SharedKoin_coreCallbacks<T>;
 
 @protocol SharedService, SharedKoin_coreKoinComponent, SharedKotlinx_serialization_coreKSerializer, SharedMovieDataSource, SharedMovieUseCase, SharedKotlinKClass, SharedKoin_coreKoinScopeComponent, SharedKoin_coreQualifier, SharedKotlinLazy, SharedKotlinx_serialization_coreEncoder, SharedKotlinx_serialization_coreSerialDescriptor, SharedKotlinx_serialization_coreSerializationStrategy, SharedKotlinx_serialization_coreDecoder, SharedKotlinx_serialization_coreDeserializationStrategy, SharedKotlinIterator, SharedKotlinKDeclarationContainer, SharedKotlinKAnnotatedElement, SharedKotlinKClassifier, SharedKoin_coreScopeCallback, SharedKotlinComparable, SharedKotlinx_serialization_coreCompositeEncoder, SharedKotlinAnnotation, SharedKotlinx_serialization_coreCompositeDecoder, SharedKotlinx_serialization_coreSerializersModuleCollector;
 
@@ -338,6 +338,39 @@ __attribute__((swift_name("MovieSearchResponse.Companion")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)companion __attribute__((swift_name("init()")));
 - (id<SharedKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("AppColors")))
+@interface SharedAppColors : SharedBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)appColors __attribute__((swift_name("init()")));
+@property (readonly) NSString *backgroundColor __attribute__((swift_name("backgroundColor")));
+@property (readonly) NSString *errorColor __attribute__((swift_name("errorColor")));
+@property (readonly) NSString *onBackgroundColor __attribute__((swift_name("onBackgroundColor")));
+@property (readonly) NSString *onPrimaryColor __attribute__((swift_name("onPrimaryColor")));
+@property (readonly) NSString *onSecondaryColor __attribute__((swift_name("onSecondaryColor")));
+@property (readonly) NSString *primaryColor __attribute__((swift_name("primaryColor")));
+@property (readonly) NSString *secondaryColor __attribute__((swift_name("secondaryColor")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Rgba")))
+@interface SharedRgba : SharedBase
+- (instancetype)initWithR:(float)r g:(float)g b:(float)b a:(float)a __attribute__((swift_name("init(r:g:b:a:)"))) __attribute__((objc_designated_initializer));
+- (float)component1 __attribute__((swift_name("component1()")));
+- (float)component2 __attribute__((swift_name("component2()")));
+- (float)component3 __attribute__((swift_name("component3()")));
+- (float)component4 __attribute__((swift_name("component4()")));
+- (SharedRgba *)doCopyR:(float)r g:(float)g b:(float)b a:(float)a __attribute__((swift_name("doCopy(r:g:b:a:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float a __attribute__((swift_name("a")));
+@property (readonly) float b __attribute__((swift_name("b")));
+@property (readonly) float g __attribute__((swift_name("g")));
+@property (readonly) float r __attribute__((swift_name("r")));
 @end;
 
 __attribute__((swift_name("MovieDataSource")))

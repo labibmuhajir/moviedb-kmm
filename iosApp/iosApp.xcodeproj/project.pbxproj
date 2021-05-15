@@ -10,6 +10,8 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		5EAEDC9D264E7DDF00824278 /* MovieDbKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAEDC9C264E7DDF00824278 /* MovieDbKit.xcframework */; };
 		5EAEDC9E264E7DDF00824278 /* MovieDbKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAEDC9C264E7DDF00824278 /* MovieDbKit.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5EAEDCAE264FCFD600824278 /* BlackLabsColor in Frameworks */ = {isa = PBXBuildFile; productRef = 5EAEDCAD264FCFD600824278 /* BlackLabsColor */; };
+		5EAEDCB1264FCFF700824278 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAEDCB0264FCFF700824278 /* Constants.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		B7572EBE2626512100A303BC /* ViewPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7572EBD2626512100A303BC /* ViewPager.swift */; };
 		B79EE43A26255A250086B39A /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79EE43926255A240086B39A /* MovieViewModel.swift */; };
@@ -36,6 +38,7 @@
 /* Begin PBXFileReference section */
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		5EAEDC9C264E7DDF00824278 /* MovieDbKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MovieDbKit.xcframework; path = ../shared/swiftpackage/MovieDbKit.xcframework; sourceTree = "<group>"; };
+		5EAEDCB0264FCFF700824278 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EAEDCAE264FCFD600824278 /* BlackLabsColor in Frameworks */,
 				5EAEDC9D264E7DDF00824278 /* MovieDbKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EAEDCAF264FCFE200824278 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				5EAEDCB0264FCFF700824278 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +91,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				5EAEDCAF264FCFE200824278 /* Constants */,
 				B7572EBF26265F3D00A303BC /* Page */,
 				B79EE43F26256FE80086B39A /* View */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -142,6 +155,9 @@
 			dependencies = (
 			);
 			name = iosApp;
+			packageProductDependencies = (
+				5EAEDCAD264FCFD600824278 /* BlackLabsColor */,
+			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
 			productType = "com.apple.product-type.application";
@@ -170,6 +186,9 @@
 				Base,
 			);
 			mainGroup = 7555FF72242A565900829871;
+			packageReferences = (
+				5EAEDCAC264FCFD500824278 /* XCRemoteSwiftPackageReference "BlackLabsColor" */,
+			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -222,6 +241,7 @@
 				B79EE43E26256E120086B39A /* URLImage.swift in Sources */,
 				B79EE43A26255A250086B39A /* MovieViewModel.swift in Sources */,
 				B79EE441262573C70086B39A /* Banner.swift in Sources */,
+				5EAEDCB1264FCFF700824278 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +424,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5EAEDCAC264FCFD500824278 /* XCRemoteSwiftPackageReference "BlackLabsColor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NormanBitSolace/BlackLabsColor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5EAEDCAD264FCFD600824278 /* BlackLabsColor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EAEDCAC264FCFD500824278 /* XCRemoteSwiftPackageReference "BlackLabsColor" */;
+			productName = BlackLabsColor;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7555FF73242A565900829871 /* Project object */;
 }

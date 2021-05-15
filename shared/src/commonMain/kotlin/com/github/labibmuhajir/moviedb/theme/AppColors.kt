@@ -1,11 +1,13 @@
 package com.github.labibmuhajir.moviedb.theme
 
+data class Rgba(val r: Float, val g: Float, val b: Float, val a: Float)
+
 object AppColors {
-    val primaryColor = 0xFF263238
-    val secondaryColor = 0xFF37474F
-    val onPrimaryColor = 0xFFECEFF1
-    val onSecondaryColor = 0xFFCFD8DC
+    val primaryColor = "#263238"
+    val secondaryColor = "#37474F"
+    val onPrimaryColor = "#ECEFF1"
+    val onSecondaryColor = "#CFD8DC"
     val backgroundColor = primaryColor
     val onBackgroundColor = onPrimaryColor
-    val errorColor = 0xFFFF5722
+    val errorColor = "#FF5722"
 }

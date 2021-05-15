@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BlackLabsColor",
+        "repositoryURL": "https://github.com/NormanBitSolace/BlackLabsColor",
+        "state": {
+          "branch": null,
+          "revision": "ad39f9aeddfadffa8ba06a5b2e36d1f5bbbff231",
+          "version": "1.0.4"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

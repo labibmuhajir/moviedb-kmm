@@ -20,7 +20,7 @@ struct SegmentedMovie: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(title).padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
+            Text(title).padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12)).foregroundColor(Color.onBackgroundColor)
             ScrollView(.horizontal) {
                 LazyHStack {
                     ForEach(movies, id: \.id) { movie in
@@ -34,6 +34,9 @@ struct SegmentedMovie: View {
 
 struct SegmentedMovie_Previews: PreviewProvider {
     static var previews: some View {
-        SegmentedMovie(title: "", movies: [])
+        ZStack{
+            Color.backgroundColor.edgesIgnoringSafeArea(.all)
+            SegmentedMovie(title: "Popular Movie", movies: [])
+        }
     }
 }

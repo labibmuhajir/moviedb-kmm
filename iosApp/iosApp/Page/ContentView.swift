@@ -6,7 +6,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack{
-            Color.white.edgesIgnoringSafeArea(.all)
+            Color.backgroundColor.edgesIgnoringSafeArea(.all)
             
             ScrollView(.vertical) {
                 VStack(alignment: .leading){
